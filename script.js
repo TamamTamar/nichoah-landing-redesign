@@ -2,37 +2,27 @@
   const form = document.getElementById('lead-form');
   if(!form) return;
 
-  function buildMessage(data){
-    return [
-      'שלום! יש לי פנייה לגבי קייטרינג "ניחוח":',
-      `שם: ${data.name || ''}`,
-      `טלפון: ${data.phone || ''}`,
-      `סוג האירוע: ${data.event || ''}`,
-      `הודעה: ${data.message || ''}`,
-      '',
-      'נשלח מאתר הנחיתה.'
-    ].join('\n');
+  function showThanks(){
+    const wrap = form.closest('section') || form.parentElement;
+    wrap.innerHTML = `
+      <div class="thank-you">
+        <h2>תודה רבה שהשארתם פרטים!</h2>
+        <p>נחזור אליכם בהקדם.</p>
+      </div>
+    `;
   }
 
-  function openWhatsApp(msg){
-    const phone = '972587219770';
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-  }
-
-  function openMailto(msg){
-    const subject = 'פנייה חדשה מאתר – קייטרינג ניחוח';
-    const url = `mailto:nihoahfood@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
-    window.location.href = url;
-  }
-
-  form.addEventListener('submit', function(e){
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
     const fd = new FormData(form);
-    const data = Object.fromEntries(fd.entries());
-    const message = buildMessage(data);
+    if(!fd.get('form-name')) fd.set('form-name', 'lead');
 
-    try { openWhatsApp(message); } catch(_){}
-    setTimeout(function(){ openMailto(message); }, 500);
+    try{
+      await fetch('/', { method:'POST', body: fd });
+      showThanks();
+    }catch(err){
+      console.error('Submit failed', err);
+      showThanks();
+    }
   });
 })();

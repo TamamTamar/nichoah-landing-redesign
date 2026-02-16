@@ -58,45 +58,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 4. שליחת הטופס למייל דרך FormSubmit
 document.getElementById('lead-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const form = this;
     const btn = form.querySelector('button');
     const status = document.getElementById('form-status');
-    const originalText = btn.innerText;
-    
+    const formData = new FormData(form);
+
     btn.disabled = true;
     btn.innerText = 'שולח...';
 
-    fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (response.ok) {
-            status.style.display = 'block';
-            btn.innerText = 'נשלח!';
-            btn.style.background = '#2ecc71';
-            form.reset();
-            
-            setTimeout(() => {
-                status.style.display = 'none';
-                btn.disabled = false;
-                btn.innerText = originalText;
-                btn.style.background = '';
-            }, 5000);
-        } else {
-            alert('אופס! הייתה שגיאה בשליחה.');
+    // שליחה לנטליפיי
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+    })
+    .then(() => {
+        status.style.display = 'block';
+        btn.innerText = 'נשלח!';
+        btn.style.background = '#2ecc71';
+        form.reset();
+        
+        setTimeout(() => {
+            status.style.display = 'none';
             btn.disabled = false;
-            btn.innerText = originalText;
-        }
-    }).catch(error => {
-        alert('ישנה בעיה בחיבור.');
-        btn.disabled = false;
-        btn.innerText = originalText;
-    });
+            btn.innerText = 'שליחת בקשה';
+            btn.style.background = '';
+        }, 5000);
+    })
+    .catch((error) => alert("שגיאה בשליחה: " + error));
 });

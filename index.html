@@ -4,12 +4,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- SEO -->
     <title>ניחוח | קייטרינג בוטיק בטעם של בית</title>
+    <meta name="description" content="ניחוח – קייטרינג בוטיק בשרי בטעם של בית לאירועים, שבתות וחגיגות. חומרי גלם טריים, כשרות מהודרת והתאמה אישית.">
+    <link rel="canonical" href="https://nichoah.netlify.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ניחוח | קייטרינג בוטיק בטעם של בית">
+    <meta property="og:description" content="קייטרינג בוטיק בשרי לאירועים, שבתות וחגיגות. טרי, מוקפד וכשרות מהודרת.">
+    <meta property="og:url" content="https://nichoah.netlify.app/">
+    <meta property="og:image" content="https://nichoah.netlify.app/nichoach.jpg">
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ניחוח קייטרינג בוטיק",
+      "url": "https://nichoah.netlify.app/",
+      "image": "https://nichoah.netlify.app/nichoach.jpg",
+      "telephone": "+972587219770",
+      "email": "nihoahfood@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IL"
+      },
+      "servesCuisine": "קייטרינג בשרי",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,7 +54,7 @@
                 <span class="brand-main">ניחוח</span>
                 <span class="brand-sub">קייטרינג בוטיק</span>
             </div>
-            <nav class="header-nav">
+            <nav class="header-nav" aria-label="ניווט ראשי">
                 <a href="tel:+972587219770" class="phone-link">
                     058-721-9770
                 </a>
@@ -28,7 +62,6 @@
             </nav>
         </div>
     </header>
-
 
     <main>
         <section class="hero">
@@ -45,7 +78,7 @@
                         </div>
                     </div>
                     <div class="hero-image-wrapper">
-                        <img src="./nichoach.jpg" alt="שולחן אירוח של ניחוח" class="hero-img">
+                        <img src="./nichoach.jpg" alt="שולחן אירוח - ניחוח קייטרינג בוטיק" class="hero-img" loading="lazy">
                         <div class="experience-tag">
                             <strong>100%</strong>
                             <span>עבודת יד</span>
@@ -113,7 +146,7 @@
                     <div class="menu-card">
                         <h3>🍚 תוספות חמות</h3>
                         <ul>
-                            <li>אורז בשמתי עם שקדים</li>
+                            <li>אורז בסמטי עם שקדים</li>
                             <li>תפוחי אדמה צלויים בעשבי תיבול</li>
                             <li>קוסקוס ביתי בעבודת יד</li>
                             <li>שעועית ירוקה מוקפצת</li>
@@ -134,23 +167,24 @@
                         <a href="mailto:nihoahfood@gmail.com">✉️ nihoahfood@gmail.com</a>
                     </div>
                 </div>
-              <form class="contact-form" id="lead-form" name="contact" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="contact">
 
-    <div class="form-group">
-        <input type="text" name="name" placeholder="שם מלא" required>
-    </div>
-    <div class="form-group">
-        <input type="tel" name="phone" placeholder="טלפון" required>
-    </div>
-    <div class="form-group">
-        <textarea name="message" placeholder="סוג האירוע, כמות אנשים או כל בקשה אחרת..."></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">שליחת בקשה</button>
-    <div id="form-status" style="display:none; color: #2ecc71; margin-top: 15px; font-weight: bold; text-align: center;">
-        הטופס נשלח בהצלחה! נחזור אליכם בהקדם.
-    </div>
-</form>
+                <form class="contact-form" id="lead-form" name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact">
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="שם מלא" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="טלפון" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="סוג האירוע, כמות אנשים או כל בקשה אחרת..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">שליחת בקשה</button>
+                    <div id="form-status" style="display:none; color: #2ecc71; margin-top: 15px; font-weight: bold; text-align: center;">
+                        הטופס נשלח בהצלחה! נחזור אליכם בהקדם.
+                    </div>
+                </form>
             </div>
         </section>
     </main>
@@ -162,7 +196,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- ביצועים -->
+    <script src="script.js" defer></script>
 </body>
 
 </html>

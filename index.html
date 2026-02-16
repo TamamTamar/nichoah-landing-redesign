@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<header class="site-header">
+    <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
                 <span class="brand-main">ניחוח</span>
@@ -134,7 +134,11 @@
                         <a href="mailto:nihoahfood@gmail.com">✉️ nihoahfood@gmail.com</a>
                     </div>
                 </div>
-                <form class="contact-form" id="lead-form">
+                <form class="contact-form" id="lead-form" action="https://formsubmit.co/nihoahfood@gmail.com"
+                    method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> <input type="hidden"
+                        name="_template" value="table">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="שם מלא" required>
                     </div>
@@ -145,6 +149,10 @@
                         <textarea name="message" placeholder="סוג האירוע, כמות אנשים או כל בקשה אחרת..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">שליחת בקשה</button>
+                    <div id="form-status"
+                        style="display:none; color: #2ecc71; margin-top: 15px; font-weight: bold; text-align: center;">
+                        הטופס נשלח בהצלחה! נחזור אליכם בהקדם.
+                    </div>
                 </form>
             </div>
         </section>

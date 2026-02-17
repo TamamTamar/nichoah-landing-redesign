@@ -593,3 +593,17 @@ h1 {
         padding: 30px;
     }
 }
+.menu-card .two-cols {
+  columns: 2;
+  column-gap: 18px;
+}
+
+.menu-card .two-cols li {
+  break-inside: avoid;
+}
+
+@media (max-width: 520px) {
+  .menu-card .two-cols {
+    columns: 1;
+  }
+}
